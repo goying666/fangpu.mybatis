@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!--相当于UserMapper接口的实现 namespace必须是UserMapper类路径-->
+<mapper namespace="com.renchaigao.answer.answerMapper">
+    <!--新增一个回答-->
+    <insert id="addOneAnswer" parameterType="com.renchaigao.answer.oneAnswer" useGeneratedKeys="true" keyProperty="id">
+        insert into oneanswer (id,path,answerFileName,termInfo,userId,termId,addTime,answerNum)
+        values(#{id},#{path},#{answerFileName},#{termInfo},#{userId},#{termId},#{addTime},#{answerNum})
+    </insert>
+
+    <!--通过id查询回答音频的保存路径-->
+    <select id="getOneAnswerRecordingById" resultType="com.renchaigao.answer.oneAnswer">
+        SELECT * FROM oneanswer WHERE id=#{id}
+    </select>
+
+
+</mapper>
